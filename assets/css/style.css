@@ -1,0 +1,577 @@
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+}
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+hr {
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin: 40px 0;
+
+  border: 0;
+  background-color: #e5e5e5;
+}
+
+/* container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* INTRO */
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  /* 100vh - 100% экрана посетителя */
+  height: 100vh;
+  background: url(/assets/images/intro.jpg) center no-repeat;
+  background-size: cover;
+}
+
+.intro__inner {
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.intro__title {
+  color: #fff;
+  font-size: 150px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.intro__title:after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #fff;
+  /* сверху и снизу 60 по сторонам авто */
+  margin: 60px auto;
+}
+
+.intro__suptitle {
+  font-size: 72px;
+  color: #fff;
+  font-family: "Kaushan Script", cursive;
+  margin-bottom: 20px;
+}
+
+/* HEADER */
+
+.header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding-top: 30px;
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  /* выравнивание элементов в данном контейнере */
+  align-items: center;
+}
+
+.header__logo {
+  font-size: 30px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Navigation */
+
+.nav {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.nav__link {
+  position: relative;
+  /* чтобы ссылки шли в строку и можно было задать маржин чтобы друг к другу не прилегали*/
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 15px;
+  color: #fff;
+  text-decoration: none;
+  /* Изменение цвета при наведение плавное транситион */
+  transition: color 0.1s;
+}
+
+/* При наведении подчеркивание снизу */
+.nav__link::after {
+  content: "";
+  display: block;
+  /* 100% ширины от ширины элемента */
+  width: 100%;
+  height: 3px;
+  background-color: #fce38a;
+  /* позиционируем относительно ссылки поэтому посиш абсолют, а у ссылки релатив */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  /* варианты появления полосы */
+  /* display: none; */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.nav__link:hover {
+  color: #fce38a;
+}
+.nav__link:hover::after,
+.nav__link.active::after {
+  /* display: block; */
+  opacity: 1;
+}
+
+.nav__link.active {
+  color: #fce38a;
+}
+
+/* BUTTON */
+
+.btn {
+  display: inline-block;
+  vertical-align: top;
+  padding: 8px 30px;
+
+  border: 3px solid white;
+
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+
+  color: #fff;
+  text-transform: uppercase;
+  /* linear - одинаковая скорость от начала и до конца */
+  transition: background 0.3s linear, color 0.3s linear;
+}
+
+.btn:hover {
+  font-style: italic;
+  background-color: #e99684;
+  color: #fce38a;
+}
+
+/* ----------SLIDER----------- */
+
+.slider {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.slider__inner {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.slider__item {
+  width: 23%;
+  padding: 20px 0;
+  position: relative;
+  /* релатив чтобы позиционировать красную полоску относительно этого элемента */
+
+  border-top: 3px solid #fff;
+  opacity: 0.7;
+
+  font-size: 18px;
+  color: #fff;
+  text-transform: uppercase;
+}
+.slider__item.active {
+  opacity: 1;
+}
+
+.slider__item.active::before {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 3px;
+
+  position: absolute;
+  top: -3px;
+  left: 0;
+  z-index: 1;
+  background-color: #f38181;
+}
+
+.slider__num {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* section */
+
+.section {
+  padding: 80px 0;
+}
+
+.section__header {
+  width: 100%;
+  max-width: 950px;
+  /* 40 пикс - отступ снизу */
+  margin: 0 auto 50px;
+
+  text-align: center;
+}
+
+.section__suptitle {
+  font-size: 24px;
+  color: #333;
+  font-family: "Kaushan Script", cursive;
+}
+
+.section__title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.section__title:after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #f38181;
+  margin: 30px auto 30px;
+}
+
+.section__text {
+  font-size: 15px;
+  color: #999;
+}
+
+/* ABOUT */
+
+.about {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about__item {
+  width: 380px;
+  background-color: #95e1d3;
+
+  position: relative;
+  /* чтобы позиционировать текст поверх картинки - РЕЛАТИВ */
+}
+
+/* при наводе на картинку она сдвигается 
+для этого лучше использовать трансформацию (быстрее грузится такое)чем LEFT & TOP сдвиги потому что каждый пикс прорисовывается сдвигаемых элементов*/
+
+.about__item:hover .about__img {
+  /* по оси Х по оси У по оси Z */
+  transform: translate3d(-10px, -10px, 0);
+}
+
+/* при наводе на картинку она заглушается на 80% и видно градиент расположенный под ней */
+
+.about__item:hover .about__img img {
+  opacity: 0.2;
+}
+
+.about__img {
+  background: linear-gradient(to bottom, #f38181, #fce38a);
+
+  transition: transform 0.2s linear;
+}
+
+.about__img img {
+  /* чтобы градиент не вылазил из под картинки надо дисплей блок */
+  display: block;
+  transition: opacity 0.1s linear;
+}
+
+.about__text {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  z-index: 2;
+  transform: translate3d(0, -50%, 0);
+  opacity: 0;
+  transition: opacity 0.2s linear;
+}
+
+.about__item:hover .about__text {
+  opacity: 1;
+}
+
+/* STATISTICS */
+
+.statistics {
+  background-color: #95e1d3;
+}
+.stat {
+  display: flex;
+}
+.stat__item {
+  /* чтобы сделать все колонки флекса одинаковой ширины */
+  flex: 1 1 0;
+
+  border-left: 1px solid #b5eae0;
+  padding: 70px 25px;
+
+  text-align: center;
+  color: #fff;
+}
+/* обращение к последнему селектору элементов одного класса */
+.stat__item:last-child {
+  border-right: 1px solid #b5eae0;
+}
+
+.stat__count {
+  margin-bottom: 10px;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat__text {
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* Styles for SERVICES */
+
+.services {
+  display: flex;
+}
+
+.services__item {
+  /* для одинаковой ширины 1 1 0 */
+  /* Эти значения будут соответствовать flex-grow и flex-shrink соответственно. По умолчанию для flex-basis будет установлено значение 0. */
+  flex: 1 1 0;
+
+  padding-left: 75px;
+  position: relative;
+  padding-right: 25px;
+}
+
+.services__icon {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  z-index: 1;
+}
+
+.services__title {
+  font-size: 14px;
+  color: #333;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.services__text {
+  font-size: 15px;
+  color: #999;
+}
+
+/* block we do */
+
+.wedo {
+  display: flex;
+}
+
+.wedo__item {
+  /* видз 50% или flex 1 1 0 */
+  width: 50%;
+}
+
+/* accordion */
+
+.accordion__item {
+  margin-bottom: 10px;
+  border: 1px solid #e5e5e5;
+}
+
+/* путь .accordion__item.active > показывать .accordion__content который отделяется пробелом */
+.accordion__item.active .accordion__content {
+  display: block;
+}
+
+.accordion__item.active .accordion__header {
+  border-bottom: 1px solid #e5e5e5;
+  border-bottom-color: #e5e5e5;
+}
+
+/* УУ.accordion__item.active ЕСТЬ .accordion__header::after КОТОРЫЙ БУДЕТ ИМЕТЬ { */
+.accordion__item.active .accordion__header::after {
+  transform: translateY(-50%) rotate(-45deg);
+  margin-top: 5px;
+}
+
+.accordion__header {
+  /* transparent - прозрачный */
+  border-bottom: 1px solid transparent;
+  padding: 15px 20px 15px 60px;
+  position: relative;
+  cursor: pointer;
+}
+
+.accordion__header::after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+
+  border-top: 2px solid #ccc;
+  border-right: 2px solid #ccc;
+
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  z-index: 1;
+  /* deg - угол в градусах */
+  transform: translateY(-50%) rotate(135deg);
+}
+
+.accordion__icon {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  z-index: 1;
+  /* При поситион абсолют по центру размещается левая верхняя точка элемента (картинки). Поэтому его приходится сдвигать на половину размера, а для этого команда ниже. */
+  transform: translateY(-50%);
+}
+
+.accordion__content {
+  padding: 15px 20px;
+  font-size: 15px;
+  color: #999;
+  /* display: none для того чтобы скрыть контент и его можно было делать видимым при клике (разворот содержимого) */
+  display: none;
+}
+
+.accordion__title {
+  font-size: 14px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+/* __________section slider____________________ */
+
+.section--gray {
+  background-color: #f8f8f8;
+}
+.reviews__photo {
+  width: 145px;
+  height: 145px;
+}
+
+.reviews {
+  padding: 0 110px;
+  /* для того чтобы относительно него позиционировать стрелки */
+  position: relative;
+}
+
+.reviews__item {
+  padding-left: 205px;
+  position: relative;
+}
+
+.reviews__photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border: 2px solid #95e1d3;
+}
+
+.reviews__text {
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 300;
+  color: #999;
+  margin-bottom: 15px;
+}
+
+.reviews__author {
+  font-family: "Kaushan Script", cursive;
+  font-size: 24px;
+  color: #333;
+}
+
+.reviews__author::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 60px;
+  height: 3px;
+  margin-right: 10px;
+
+  background-color: #f38181;
+}
+
+.reviews__btn {
+  font-size: 0;
+  color: transparent;
+
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.reviews__btn::after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+
+  border-top: 2px solid #ccc;
+  border-left: 2px solid #ccc;
+}
+
+.reviews__btn--prev {
+  left: 0;
+  transform: rotate(-45deg);
+}
+.reviews__btn--next {
+  right: 0;
+  transform: rotate(135deg);
+}
+
+/* ________________END OF SLYDER BITCH------------- */
